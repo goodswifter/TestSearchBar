@@ -1,0 +1,16 @@
+PODS:
+  - PYSearch (0.9.1)
+
+DEPENDENCIES:
+  - PYSearch
+
+SPEC REPOS:
+  trunk:
+    - PYSearch
+
+SPEC CHECKSUMS:
+  PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
+
+PODFILE CHECKSUM: 4e69879e8cfbf04b5db4db6d2ca1589c1d2f59dc
+
+COCOAPODS: 1.9.0.beta.2
