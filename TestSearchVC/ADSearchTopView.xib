@@ -13,35 +13,74 @@
             <rect key="frame" x="0.0" y="0.0" width="448" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lrw-pU-1rm">
-                    <rect key="frame" x="0.0" y="5" width="388" height="57"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <searchBar contentMode="redraw" placeholder="年前租房限时优惠" translatesAutoresizingMaskIntoConstraints="NO" id="N1n-yJ-hkj">
+                    <rect key="frame" x="0.0" y="0.0" width="388" height="67"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66a-en-RaY" userLabel="选择器">
+                    <rect key="frame" x="5" y="5" width="77" height="57"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSn-pZ-nre" userLabel="分割线">
+                            <rect key="frame" x="76" y="5" width="1" height="47"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="IXe-nO-CA8"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah8-CB-ejD" customClass="ADSelectButton">
+                            <rect key="frame" x="0.0" y="0.0" width="76" height="57"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="租房">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="selectTypeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="mSA-md-mEL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="OSn-pZ-nre" firstAttribute="leading" secondItem="Ah8-CB-ejD" secondAttribute="trailing" id="25z-1J-haW"/>
+                        <constraint firstAttribute="trailing" secondItem="OSn-pZ-nre" secondAttribute="trailing" id="4mQ-bg-dyM"/>
+                        <constraint firstAttribute="bottom" secondItem="Ah8-CB-ejD" secondAttribute="bottom" id="Mld-nG-WDJ"/>
+                        <constraint firstAttribute="bottom" secondItem="OSn-pZ-nre" secondAttribute="bottom" constant="5" id="Pxk-mN-KLP"/>
+                        <constraint firstItem="Ah8-CB-ejD" firstAttribute="top" secondItem="66a-en-RaY" secondAttribute="top" id="R9v-kO-eUe"/>
+                        <constraint firstItem="OSn-pZ-nre" firstAttribute="top" secondItem="66a-en-RaY" secondAttribute="top" constant="5" id="S55-nM-0D8"/>
+                        <constraint firstItem="Ah8-CB-ejD" firstAttribute="leading" secondItem="66a-en-RaY" secondAttribute="leading" id="XYt-pZ-U9r"/>
+                        <constraint firstAttribute="width" constant="77" id="hIJ-fO-oDv"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idj-iM-f0C">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsh-Yg-Hrg">
                     <rect key="frame" x="388" y="0.0" width="60" height="67"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="nYB-iK-XYK"/>
+                        <constraint firstAttribute="width" constant="60" id="cMv-eJ-qaS"/>
                     </constraints>
                     <state key="normal" title="取消">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="cancelAction" destination="iN0-l3-epB" eventType="touchUpInside" id="mBM-M5-cQc"/>
+                        <action selector="cancelAction" destination="iN0-l3-epB" eventType="touchUpInside" id="Nun-8h-bKs"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Lrw-pU-1rm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="47v-AB-EJr"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="idj-iM-f0C" secondAttribute="trailing" id="4Ti-0F-zMd"/>
-                <constraint firstAttribute="bottom" secondItem="Lrw-pU-1rm" secondAttribute="bottom" constant="5" id="4dc-fQ-okJ"/>
-                <constraint firstItem="idj-iM-f0C" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Fos-H5-5dp"/>
-                <constraint firstItem="idj-iM-f0C" firstAttribute="leading" secondItem="Lrw-pU-1rm" secondAttribute="trailing" id="aQE-ZB-5ai"/>
-                <constraint firstItem="Lrw-pU-1rm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="daV-Rh-6fU"/>
-                <constraint firstAttribute="bottom" secondItem="idj-iM-f0C" secondAttribute="bottom" id="reL-gN-by1"/>
+                <constraint firstItem="N1n-yJ-hkj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" symbolic="YES" id="JhT-Om-sM5"/>
+                <constraint firstAttribute="bottom" secondItem="66a-en-RaY" secondAttribute="bottom" constant="5" id="Jpo-Zu-duU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jsh-Yg-Hrg" secondAttribute="trailing" id="KtR-b1-fmC"/>
+                <constraint firstItem="66a-en-RaY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="VEa-3u-jgT"/>
+                <constraint firstItem="Jsh-Yg-Hrg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WRu-es-zt0"/>
+                <constraint firstItem="Jsh-Yg-Hrg" firstAttribute="leading" secondItem="N1n-yJ-hkj" secondAttribute="trailing" id="aXM-s3-RLh"/>
+                <constraint firstItem="66a-en-RaY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="iIh-pN-rJj"/>
+                <constraint firstItem="N1n-yJ-hkj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qM4-2p-y8I"/>
+                <constraint firstAttribute="bottom" secondItem="N1n-yJ-hkj" secondAttribute="bottom" symbolic="YES" id="uDN-W7-sRx"/>
+                <constraint firstAttribute="bottom" secondItem="Jsh-Yg-Hrg" secondAttribute="bottom" id="z14-Ut-znU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="searchBar" destination="N1n-yJ-hkj" id="x0w-HC-z4g"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="228.68303571428569"/>
         </view>
     </objects>

@@ -19,15 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     ADSearchController *searchVc = [[ADSearchController alloc] init];
     UINavigationController *navVc = [[UINavigationController alloc] initWithRootViewController:searchVc];
+    navVc.navigationBar.barTintColor = [UIColor whiteColor];
     
-    CATransition * animation = [CATransition animation];
+    CATransition *animation = [CATransition animation];
 
     animation.duration = 0.5;    //  时间
 
@@ -78,9 +78,6 @@
      */
     
     navVc.modalPresentationStyle = UIModalPresentationFullScreen;
-    
-    
-    
     /**
      UIModalTransitionStyleCoverVertical = 0,
      UIModalTransitionStyleFlipHorizontal API_UNAVAILABLE(tvos),
