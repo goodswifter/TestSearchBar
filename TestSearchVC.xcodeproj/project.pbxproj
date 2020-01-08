@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -79,26 +79,66 @@
 		12AE290823C2DAFB001F9C7F /* TestSearchVC */ = {
 			isa = PBXGroup;
 			children = (
-				12AE292D23C498CA001F9C7F /* UIButton+ADImagePosition.m */,
-				12AE292C23C498CA001F9C7F /* UIButton+ADImagePosition.h */,
-				12AE290923C2DAFB001F9C7F /* AppDelegate.h */,
-				12AE290A23C2DAFB001F9C7F /* AppDelegate.m */,
+				12C5794F23C5614B001D7F9D /* Classes */,
+				12C5794E23C56142001D7F9D /* Category */,
+				12C5794C23C5612D001D7F9D /* Other */,
 				12AE290F23C2DAFB001F9C7F /* ViewController.h */,
 				12AE291023C2DAFB001F9C7F /* ViewController.m */,
 				12AE291223C2DAFB001F9C7F /* Main.storyboard */,
 				12AE291523C2DAFD001F9C7F /* Assets.xcassets */,
-				12AE291723C2DAFD001F9C7F /* LaunchScreen.storyboard */,
 				12AE291A23C2DAFD001F9C7F /* Info.plist */,
+			);
+			path = TestSearchVC;
+			sourceTree = "<group>";
+		};
+		12C5794C23C5612D001D7F9D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				12AE290923C2DAFB001F9C7F /* AppDelegate.h */,
+				12AE290A23C2DAFB001F9C7F /* AppDelegate.m */,
+				12AE291723C2DAFD001F9C7F /* LaunchScreen.storyboard */,
 				12AE291B23C2DAFD001F9C7F /* main.m */,
-				12AE292223C32A90001F9C7F /* ADSearchController.h */,
-				12AE292323C32A90001F9C7F /* ADSearchController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		12C5794E23C56142001D7F9D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				12AE292D23C498CA001F9C7F /* UIButton+ADImagePosition.m */,
+				12AE292C23C498CA001F9C7F /* UIButton+ADImagePosition.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		12C5794F23C5614B001D7F9D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				12C5795123C56162001D7F9D /* C */,
+				12C5795023C56153001D7F9D /* V */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		12C5795023C56153001D7F9D /* V */ = {
+			isa = PBXGroup;
+			children = (
 				12AE292523C33140001F9C7F /* ADSearchTopView.h */,
 				12AE292623C33140001F9C7F /* ADSearchTopView.m */,
 				12AE292823C33149001F9C7F /* ADSearchTopView.xib */,
 				12AE292F23C4994D001F9C7F /* ADSelectButton.h */,
 				12AE293023C4994D001F9C7F /* ADSelectButton.m */,
 			);
-			path = TestSearchVC;
+			path = V;
+			sourceTree = "<group>";
+		};
+		12C5795123C56162001D7F9D /* C */ = {
+			isa = PBXGroup;
+			children = (
+				12AE292223C32A90001F9C7F /* ADSearchController.h */,
+				12AE292323C32A90001F9C7F /* ADSearchController.m */,
+			);
+			path = C;
 			sourceTree = "<group>";
 		};
 		30D052738D5D09825DA31E47 /* Frameworks */ = {
@@ -129,7 +169,6 @@
 				12AE290223C2DAFB001F9C7F /* Sources */,
 				12AE290323C2DAFB001F9C7F /* Frameworks */,
 				12AE290423C2DAFB001F9C7F /* Resources */,
-				FD562BA180B0FF05CB9F9169 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,23 +246,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD562BA180B0FF05CB9F9169 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestSearchVC/Pods-TestSearchVC-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestSearchVC/Pods-TestSearchVC-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestSearchVC/Pods-TestSearchVC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
