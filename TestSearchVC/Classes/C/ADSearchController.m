@@ -12,7 +12,7 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface ADSearchController () <UITableViewDelegate>
+@interface ADSearchController () <UITableViewDelegate, UIScrollViewDelegate>
 /// topView
 @property (nonatomic, weak) ADSearchTopView *topView;
 @end
@@ -27,7 +27,7 @@
     
     [self setupNavBar];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTextFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTextFieldChange:) name:kTopViewSearchTextFieldEditingChanged object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,8 +55,7 @@
 
 #pragma mark - Notification Event Response
 - (void)searchTextFieldChange:(NSNotification *)note {
-    NSLog(@"%@", note);
-    NSLog(@"%@", [note.object text]);
+    NSLog(@"--%@", note);
 }
 
 #pragma mark - System Delegate
@@ -74,6 +73,14 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"cell - %ld", indexPath.row];
     return cell;
+}
+
+#pragma mark - <UIScrollViewDelegate>
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY != -88 && offsetY != -64) {
+        [self.topView ad_endEditing];
+    }
 }
 
 #pragma mark - Getter and Setter

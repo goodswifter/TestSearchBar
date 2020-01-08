@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kTopViewSearchTextFieldEditingChanged @"TopViewSearchTextFieldEditingChanged"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ADSearchTopView : UIView

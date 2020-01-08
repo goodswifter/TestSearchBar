@@ -64,8 +64,15 @@
     // 设置光标偏移
     self.searchBar.searchTextPositionAdjustment = UIOffsetMake(60, 0);
 
-//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:nil userInfo:@{@"text" : @"1234"}];
-    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:@{@"text" : @"1234"}];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.searchTF userInfo:@{@"text" : @"1234"}];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:@{@"text" : @"1234"}];
+    
+    [self.searchTF addTarget:self action:@selector(textFieldTextChange:) forControlEvents:UIControlEventEditingChanged];
+}
+
+#pragma mark - Private Function
+- (void)textFieldTextChange:(UISearchTextField *)searchTF {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTopViewSearchTextFieldEditingChanged object:@{@"text" : searchTF.text}];
 }
 
 #pragma mark - Public Function
