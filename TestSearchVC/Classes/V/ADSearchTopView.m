@@ -9,17 +9,22 @@
 #import "ADSearchTopView.h"
 #import "ADSelectButton.h"
 
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kRGBColor(r, g, b) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:1]
 
 @interface ADSearchTopView ()
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+/// searchbar的textfield
+@property (nonatomic, weak) UISearchTextField *searchTF;
 @end
 
 @implementation ADSearchTopView
 
 + (instancetype)sharedSearcheTopView {
-    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -42,6 +47,7 @@
 - (void)setup {
     self.autoresizingMask = UIViewAutoresizingNone;
     UISearchTextField *searchField = [self.searchBar valueForKey:@"searchField"];
+    self.searchTF = searchField;
     // 设置光标颜色
     searchField.tintColor = [UIColor orangeColor];
     
@@ -57,8 +63,21 @@
     self.searchBar.showsCancelButton = NO;
     // 设置光标偏移
     self.searchBar.searchTextPositionAdjustment = UIOffsetMake(60, 0);
+
+//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:nil userInfo:@{@"text" : @"1234"}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:@{@"text" : @"1234"}];
 }
 
+#pragma mark - Public Function
+- (void)ad_becomeFirstResponder {
+    [self.searchBar becomeFirstResponder];
+}
+
+- (void)ad_endEditing {
+    [self endEditing:YES];
+}
+
+#pragma mark - Button Event Response
 /// 取消
 - (IBAction)cancelAction {
     !self.cancelBlockTask ?: self.cancelBlockTask();
@@ -66,6 +85,11 @@
 
 - (IBAction)selectTypeAction:(ADSelectButton *)sender {
     NSLog(@"444");
+}
+
+#pragma mark - Getter and Setter
+- (BOOL)isActive {
+    return self.searchTF.text.length;
 }
 
 @end

@@ -12,32 +12,82 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface ADSearchController ()
-
+@interface ADSearchController () <UITableViewDelegate>
+/// topView
+@property (nonatomic, weak) ADSearchTopView *topView;
 @end
 
 @implementation ADSearchController
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupNavBar];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTextFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.topView ad_becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.topView ad_endEditing];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupNavBar {
-    ADSearchTopView *titleView = [ADSearchTopView sharedSearcheTopView];
-    
-    // 取消
-    titleView.cancelBlockTask = ^{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    };
-    
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 22, 44)];
-    titleView.frame = backView.bounds;
-    [backView addSubview:titleView];
+    self.topView.frame = backView.bounds;
+    [backView addSubview:self.topView];
     self.navigationItem.titleView = backView;
+}
+
+#pragma mark - Notification Event Response
+- (void)searchTextFieldChange:(NSNotification *)note {
+    NSLog(@"%@", note);
+    NSLog(@"%@", [note.object text]);
+}
+
+#pragma mark - System Delegate
+#pragma mark - <UITableViewDelegate>
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 50;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *ID = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"cell - %ld", indexPath.row];
+    return cell;
+}
+
+#pragma mark - Getter and Setter
+- (ADSearchTopView *)topView {
+    if (!_topView) {
+        ADSearchTopView *topView = [ADSearchTopView sharedSearcheTopView];
+        
+        // 取消
+        topView.cancelBlockTask = ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+        _topView = topView;
+    }
+    return _topView;
 }
 
 @end

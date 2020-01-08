@@ -13,10 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="448" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="年前租房限时优惠" translatesAutoresizingMaskIntoConstraints="NO" id="N1n-yJ-hkj">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1F-O2-Xdy">
                     <rect key="frame" x="0.0" y="0.0" width="388" height="67"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
+                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66a-en-RaY" userLabel="选择器">
                     <rect key="frame" x="5" y="5" width="77" height="57"/>
                     <subviews>
@@ -65,21 +65,95 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="N1n-yJ-hkj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" symbolic="YES" id="JhT-Om-sM5"/>
                 <constraint firstAttribute="bottom" secondItem="66a-en-RaY" secondAttribute="bottom" constant="5" id="Jpo-Zu-duU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jsh-Yg-Hrg" secondAttribute="trailing" id="KtR-b1-fmC"/>
                 <constraint firstItem="66a-en-RaY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="VEa-3u-jgT"/>
                 <constraint firstItem="Jsh-Yg-Hrg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WRu-es-zt0"/>
-                <constraint firstItem="Jsh-Yg-Hrg" firstAttribute="leading" secondItem="N1n-yJ-hkj" secondAttribute="trailing" id="aXM-s3-RLh"/>
+                <constraint firstItem="o1F-O2-Xdy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Wmc-BS-usx"/>
                 <constraint firstItem="66a-en-RaY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="iIh-pN-rJj"/>
-                <constraint firstItem="N1n-yJ-hkj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qM4-2p-y8I"/>
-                <constraint firstAttribute="bottom" secondItem="N1n-yJ-hkj" secondAttribute="bottom" symbolic="YES" id="uDN-W7-sRx"/>
+                <constraint firstItem="Jsh-Yg-Hrg" firstAttribute="leading" secondItem="o1F-O2-Xdy" secondAttribute="trailing" id="ske-Wq-Tty"/>
+                <constraint firstItem="o1F-O2-Xdy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uJl-Nj-AZ4"/>
+                <constraint firstAttribute="bottom" secondItem="o1F-O2-Xdy" secondAttribute="bottom" id="xdU-OG-4qa"/>
                 <constraint firstAttribute="bottom" secondItem="Jsh-Yg-Hrg" secondAttribute="bottom" id="z14-Ut-znU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="searchBar" destination="N1n-yJ-hkj" id="x0w-HC-z4g"/>
+                <outlet property="bgView" destination="o1F-O2-Xdy" id="7vG-LK-C6W"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="228.68303571428569"/>
+        </view>
+        <view contentMode="scaleToFill" id="S2o-Mx-IH5" customClass="ADSearchTopView">
+            <rect key="frame" x="0.0" y="0.0" width="448" height="67"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="年前租房限时优惠" translatesAutoresizingMaskIntoConstraints="NO" id="na3-6y-VXC">
+                    <rect key="frame" x="0.0" y="0.0" width="388" height="67"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-9B-Sp6" userLabel="选择器">
+                    <rect key="frame" x="5" y="5" width="77" height="57"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYP-07-Jbi" userLabel="分割线">
+                            <rect key="frame" x="76" y="5" width="1" height="47"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="Psk-mX-abk"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEB-eJ-ekZ" customClass="ADSelectButton">
+                            <rect key="frame" x="0.0" y="0.0" width="76" height="57"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="租房">
+                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="selectTypeAction:" destination="S2o-Mx-IH5" eventType="touchUpInside" id="mab-nA-9gQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="iYP-07-Jbi" secondAttribute="trailing" id="0W2-b3-cgk"/>
+                        <constraint firstAttribute="bottom" secondItem="iYP-07-Jbi" secondAttribute="bottom" constant="5" id="5k6-rZ-MPL"/>
+                        <constraint firstItem="iYP-07-Jbi" firstAttribute="top" secondItem="Zhg-9B-Sp6" secondAttribute="top" constant="5" id="E8T-47-Snd"/>
+                        <constraint firstItem="cEB-eJ-ekZ" firstAttribute="top" secondItem="Zhg-9B-Sp6" secondAttribute="top" id="XGl-nF-LfD"/>
+                        <constraint firstAttribute="width" constant="77" id="e7N-mJ-tYB"/>
+                        <constraint firstItem="cEB-eJ-ekZ" firstAttribute="leading" secondItem="Zhg-9B-Sp6" secondAttribute="leading" id="eCz-IJ-qbV"/>
+                        <constraint firstItem="iYP-07-Jbi" firstAttribute="leading" secondItem="cEB-eJ-ekZ" secondAttribute="trailing" id="fDm-cp-9cM"/>
+                        <constraint firstAttribute="bottom" secondItem="cEB-eJ-ekZ" secondAttribute="bottom" id="z0Q-yS-Kuz"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSo-0g-IZw">
+                    <rect key="frame" x="388" y="0.0" width="60" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Stg-gU-5JR"/>
+                    </constraints>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelAction" destination="S2o-Mx-IH5" eventType="touchUpInside" id="Gwp-Pg-67l"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="wSo-0g-IZw" firstAttribute="leading" secondItem="na3-6y-VXC" secondAttribute="trailing" id="BVD-5U-uIz"/>
+                <constraint firstItem="wSo-0g-IZw" firstAttribute="top" secondItem="S2o-Mx-IH5" secondAttribute="top" id="Heb-wH-EUp"/>
+                <constraint firstItem="ZQT-IV-g2q" firstAttribute="trailing" secondItem="wSo-0g-IZw" secondAttribute="trailing" id="JuI-Fb-w7d"/>
+                <constraint firstItem="Zhg-9B-Sp6" firstAttribute="top" secondItem="S2o-Mx-IH5" secondAttribute="top" constant="5" id="RQm-vQ-47q"/>
+                <constraint firstAttribute="bottom" secondItem="wSo-0g-IZw" secondAttribute="bottom" id="Soz-6m-gEB"/>
+                <constraint firstItem="na3-6y-VXC" firstAttribute="leading" secondItem="ZQT-IV-g2q" secondAttribute="leading" id="UwB-hy-X40"/>
+                <constraint firstItem="na3-6y-VXC" firstAttribute="top" secondItem="S2o-Mx-IH5" secondAttribute="top" symbolic="YES" id="fXZ-a9-iBH"/>
+                <constraint firstItem="Zhg-9B-Sp6" firstAttribute="leading" secondItem="ZQT-IV-g2q" secondAttribute="leading" constant="5" id="ixP-Mm-UtJ"/>
+                <constraint firstAttribute="bottom" secondItem="na3-6y-VXC" secondAttribute="bottom" symbolic="YES" id="jbL-b1-eqJ"/>
+                <constraint firstAttribute="bottom" secondItem="Zhg-9B-Sp6" secondAttribute="bottom" constant="5" id="pxx-9g-Nek"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="ZQT-IV-g2q"/>
+            <connections>
+                <outlet property="searchBar" destination="na3-6y-VXC" id="xIx-gc-6hc"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="228.68303571428569"/>
         </view>

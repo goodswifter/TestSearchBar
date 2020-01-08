@@ -14,8 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedSearcheTopView;
 
+/// 是否处于活跃状态
+@property (nonatomic, assign, getter=isActive) BOOL active;
 /// 点击取消的任务
 @property (nonatomic, copy) void(^cancelBlockTask)(void);
+
+- (void)ad_becomeFirstResponder;
+- (void)ad_endEditing;
 
 @end
 
