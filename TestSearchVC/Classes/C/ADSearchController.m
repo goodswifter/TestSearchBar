@@ -15,6 +15,11 @@
 @interface ADSearchController () <UITableViewDelegate, UIScrollViewDelegate>
 /// topView
 @property (nonatomic, weak) ADSearchTopView *topView;
+/// 当前输入的文本
+@property (nonatomic, copy) NSString *inputText;
+
+/// 当前页面是否处于活跃状态
+@property (nonatomic, assign, getter=isActive) BOOL active;
 @end
 
 @implementation ADSearchController
@@ -55,13 +60,16 @@
 
 #pragma mark - Notification Event Response
 - (void)searchTextFieldChange:(NSNotification *)note {
-    NSLog(@"--%@", note);
+    self.inputText = note.userInfo[@"text"];
+    self.active = self.inputText.length;
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - System Delegate
 #pragma mark - <UITableViewDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
+    return self.isActive ? 50 : 35;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,7 +79,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"cell - %ld", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %ld", self.isActive ? @"非活跃" : @"活跃", indexPath.row];
     return cell;
 }
 

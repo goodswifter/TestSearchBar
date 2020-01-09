@@ -16,15 +16,14 @@
 @interface ADSearchTopView ()
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIView *bgView;
 /// searchbar的textfield
-@property (nonatomic, weak) UISearchTextField *searchTF;
+@property (nonatomic, weak) UITextField *searchTF;
 @end
 
 @implementation ADSearchTopView
 
 + (instancetype)sharedSearcheTopView {
-    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -46,7 +45,7 @@
 #pragma mark - 初始化
 - (void)setup {
     self.autoresizingMask = UIViewAutoresizingNone;
-    UISearchTextField *searchField = [self.searchBar valueForKey:@"searchField"];
+    UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
     self.searchTF = searchField;
     // 设置光标颜色
     searchField.tintColor = [UIColor orangeColor];
@@ -63,16 +62,13 @@
     self.searchBar.showsCancelButton = NO;
     // 设置光标偏移
     self.searchBar.searchTextPositionAdjustment = UIOffsetMake(60, 0);
-
-//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.searchTF userInfo:@{@"text" : @"1234"}];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:@{@"text" : @"1234"}];
     
     [self.searchTF addTarget:self action:@selector(textFieldTextChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 #pragma mark - Private Function
-- (void)textFieldTextChange:(UISearchTextField *)searchTF {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTopViewSearchTextFieldEditingChanged object:@{@"text" : searchTF.text}];
+- (void)textFieldTextChange:(UITextField *)searchTF {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTopViewSearchTextFieldEditingChanged object:searchTF userInfo:@{@"text" : searchTF.text}];
 }
 
 #pragma mark - Public Function
