@@ -105,8 +105,8 @@
 		12C5794E23C56142001D7F9D /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				12AE292D23C498CA001F9C7F /* UIButton+ADImagePosition.m */,
 				12AE292C23C498CA001F9C7F /* UIButton+ADImagePosition.h */,
+				12AE292D23C498CA001F9C7F /* UIButton+ADImagePosition.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
