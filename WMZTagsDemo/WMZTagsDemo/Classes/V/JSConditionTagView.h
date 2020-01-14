@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 标签标题
 @property (nonatomic, copy) NSString *tagTitle;
 
+/// tagViewSize
+@property (nonatomic, assign) CGSize tagViewSize;
+
 + (instancetype)sharedConditionTagView;
 
 @end

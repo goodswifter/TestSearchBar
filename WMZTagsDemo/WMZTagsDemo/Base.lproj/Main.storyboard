@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,19 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWa-nA-upG" customClass="TTGTagCollectionView">
-                                <rect key="frame" x="10" y="144" width="304" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TlD-7u-d1U">
+                                <rect key="frame" x="20" y="54" width="344" height="278"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWa-nA-upG" customClass="TTGTagCollectionView">
+                                        <rect key="frame" x="5" y="5" width="334" height="268"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="6CH-SO-x2J"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" placeholder="YES" id="lb4-O6-SCj"/>
+                                    <constraint firstItem="TWa-nA-upG" firstAttribute="leading" secondItem="TlD-7u-d1U" secondAttribute="leading" constant="5" id="7kZ-Xr-apk"/>
+                                    <constraint firstAttribute="trailing" secondItem="TWa-nA-upG" secondAttribute="trailing" constant="5" id="XlJ-in-soi"/>
+                                    <constraint firstItem="TWa-nA-upG" firstAttribute="top" secondItem="TlD-7u-d1U" secondAttribute="top" constant="5" id="bsz-oo-A4t"/>
+                                    <constraint firstAttribute="bottom" secondItem="TWa-nA-upG" secondAttribute="bottom" constant="5" id="c30-mK-nBQ"/>
+                                    <constraint firstAttribute="height" constant="278" placeholder="YES" id="fV7-YF-Fre"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TWa-nA-upG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="1BG-lp-Fbe"/>
-                            <constraint firstItem="TWa-nA-upG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="MQR-zI-O55"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TWa-nA-upG" secondAttribute="trailing" constant="100" id="Nd2-0i-RTY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TlD-7u-d1U" secondAttribute="trailing" constant="50" id="QhF-zK-qTf"/>
+                            <constraint firstItem="TlD-7u-d1U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="bDv-cR-pCO"/>
+                            <constraint firstItem="TlD-7u-d1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wMi-sm-sbt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

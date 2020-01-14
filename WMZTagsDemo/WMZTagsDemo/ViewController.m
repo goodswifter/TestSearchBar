@@ -16,7 +16,7 @@
 /// 数组
 @property (nonatomic, strong) NSMutableArray *datas;
 /// tag数组
-@property (strong, nonatomic) NSMutableArray<UIView *> *tagViews;
+@property (strong, nonatomic) NSMutableArray<JSConditionTagView *> *tagViews;
 @end
 
 @implementation ViewController
@@ -26,7 +26,6 @@
     
     // 设置tagCollectionView
     [self setupTagCollectionView];
-    
     
     [self addTagViews];
 }
@@ -38,7 +37,6 @@
         JSConditionTagView *tagView = [JSConditionTagView sharedConditionTagView];
         tagView.autoresizingMask = UIViewAutoresizingNone;
         tagView.tagTitle = self.datas[i];
-        [tagView sizeToFit];
         [self.tagViews addObject:tagView];
     }
     [self.tagCollectionView reload];
@@ -47,6 +45,8 @@
 - (void)setupTagCollectionView {
     _tagCollectionView.delegate = self;
     _tagCollectionView.dataSource = self;
+    self.tagCollectionView.horizontalSpacing = 10;
+    self.tagCollectionView.verticalSpacing = 10;
 }
 
 #pragma mark - Private Delegate
@@ -61,7 +61,7 @@
 
 #pragma mark - <TTGTagCollectionViewDelegate>
 - (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index {
-    return self.tagViews[index].frame.size;
+    return self.tagViews[index].tagViewSize;
 }
 
 - (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
@@ -71,7 +71,7 @@
 }
 
 #pragma mark - Getter and Setter
-- (NSMutableArray<UIView *> *)tagViews {
+- (NSMutableArray<JSConditionTagView *> *)tagViews {
     if (!_tagViews) {
         _tagViews = [NSMutableArray array];
     }
@@ -80,7 +80,7 @@
 
 - (NSMutableArray *)datas {
     if (!_datas) {
-        _datas = [@[@"asdfasdfas", @"阿斯顿发的", @"哈哈", @"阿达大", @"牛牛", @"牛牛", @"牛牛·妞儿·牛三", @"牛牛", @"牛牛", @"牛牛"] mutableCopy];
+        _datas = [@[@"asdfasdfas", @"阿斯顿发的阿斯顿发的阿斯顿发的阿斯顿发的阿斯顿发的", @"哈哈", @"阿达大", @"阿达大", @"阿达大", @"牛牛", @"牛牛", @"牛牛·妞儿·牛三", @"牛牛", @"牛牛", @"牛牛"] mutableCopy];
     }
     return _datas;
 }
