@@ -1,6 +1,0 @@
-framework module Pods_WMZTagsDemo {
-  umbrella header "Pods-WMZTagsDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}
