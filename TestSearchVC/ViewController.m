@@ -39,7 +39,7 @@
       *  cube           方块
       *  oglFlip        上下翻转
       */
-//    animation.type = @"rippleEffect";
+    animation.type = @"rippleEffect";
 
      /**  type：页面转换类型
       *  kCATransitionFade       淡出
@@ -57,11 +57,11 @@
       *  kCATransitionFromTop         上
       *  kCATransitionFromBottom      下
       */
-//    animation.subtype = kCATransitionFromTop;
+    animation.subtype = kCATransitionFromTop;
 
     [self.view.window.layer addAnimation:animation forKey:nil];
     
-//    [self.navigationController pushViewController:searchVc animated:YES];
+    [self.navigationController pushViewController:searchVc animated:YES];
     
     /**
      UIModalPresentationFullScreen = 0,
@@ -77,7 +77,7 @@
      UIModalPresentationAutomatic API_AVAILABLE(ios(13.0)) = -2,
      */
     
-    navVc.modalPresentationStyle = UIModalPresentationFullScreen;
+//    navVc.modalPresentationStyle = UIModalPresentationFullScreen;
     /**
      UIModalTransitionStyleCoverVertical = 0,
      UIModalTransitionStyleFlipHorizontal API_UNAVAILABLE(tvos),
@@ -85,8 +85,8 @@
      UIModalTransitionStylePartialCurl API_AVAILABLE(ios(3.2))
      */
     
-    navVc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:navVc animated:YES completion:nil];
+//    navVc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    [self presentViewController:navVc animated:YES completion:nil];
 }
 
 
